@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>DER — Ship-Smart Analytics (saep_db)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #fff; font-family: Arial, sans-serif; padding: 32px; }
+  h1 { font-size: 22px; color: #C0185C; margin-bottom: 4px; }
+  p.sub { font-size: 13px; color: #888; margin-bottom: 28px; }
+  svg text { font-family: Arial, sans-serif; }
+</style>
+</head>
+<body>
+<h1>Ship-Smart Analytics — Diagrama Entidade-Relacionamento (DER)</h1>
+<p class="sub">Banco de Dados: saep_db &nbsp;|&nbsp; Entrega 2 — Documentação e Modelagem</p>
+
+<svg viewBox="0 0 1100 720" xmlns="http://www.w3.org/2000/svg" width="1100" height="720">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#888"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#C0185C"/>
+    </marker>
+  </defs>
+
+  <!-- ===== ENTITY: USUARIO ===== -->
+  <!-- Header -->
+  <rect x="30" y="40" width="220" height="38" rx="6" fill="#C0185C"/>
+  <text x="140" y="64" text-anchor="middle" fill="white" font-size="15" font-weight="bold">USUARIO</text>
+  <!-- Body -->
+  <rect x="30" y="78" width="220" height="258" rx="0" fill="#FFF5F8" stroke="#C0185C" stroke-width="1.5"/>
+  <!-- Fields -->
+  <rect x="30" y="78" width="220" height="32" fill="#FFE5EE" stroke="#C0185C" stroke-width="0.5"/>
+  <text x="46" y="99" fill="#C0185C" font-size="12" font-weight="bold">🔑 id_usuario</text>
+  <text x="200" y="99" text-anchor="end" fill="#888" font-size="11">INT (PK)</text>
+
+  <rect x="30" y="110" width="220" height="30" fill="#FFF5F8" stroke="#eee" stroke-width="0.5"/>
+  <text x="46" y="130" fill="#333" font-size="12">nome</text>
+  <text x="200" y="130" text-anchor="end" fill="#888" font-size="11">VARCHAR(100)</text>
+
+  <rect x="30" y="140" width="220" height="30" fill="#FFF5F8" stroke="#eee" stroke-width="0.5"/>
+  <text x="46" y="160" fill="#333" font-size="12">email</text>
+  <text x="200" y="160" text-anchor="end" fill="#888" font-size="11">VARCHAR(150)</text>
+
+  <rect x="30" y="170" width="220" height="30" fill="#FFF5F8" stroke="#eee" stroke-width="0.5"/>
+  <text x="46" y="190" fill="#333" font-size="12">senha_hash</text>
+  <text x="200" y="190" text-anchor="end" fill="#888" font-size="11">VARCHAR(255)</text>
+
+  <rect x="30" y="200" width="220" height="30" fill="#FFF5F8" stroke="#eee" stroke-width="0.5"/>
+  <text x="46" y="220" fill="#333" font-size="12">perfil</text>
+  <text x="200" y="220" text-anchor="end" fill="#888" font-size="11">ENUM</text>
+
+  <rect x="30" y="230" width="220" height="30" fill="#FFF5F8" stroke="#eee" stroke-width="0.5"/>
+  <text x="46" y="250" fill="#333" font-size="12">ativo</text>
+  <text x="200" y="250" text-anchor="end" fill="#888" font-size="11">TINYINT(1)</text>
+
+  <rect x="30" y="260" width="220" height="30" fill="#FFF5F8" stroke="#eee" stroke-width="0.5"/>
+  <text x="46" y="280" fill="#333" font-size="12">criado_em</text>
+  <text x="200" y="280" text-anchor="end" fill="#888" font-size="11">DATETIME</text>
+
+  <rect x="30" y="290" width="220" height="30" fill="#FFF5F8" stroke="#eee" stroke-width="0.5"/>
+  <text x="46" y="310" fill="#333" font-size="12">atualizado_em</text>
+  <text x="200" y="310" text-anchor="end" fill="#888" font-size="11">DATETIME</text>
+
+  <!-- bottom border -->
+  <rect x="30" y="336" width="220" height="2" fill="#C0185C"/>
+
+  <!-- ===== ENTITY: PRODUTO ===== -->
+  <rect x="430" y="40" width="240" height="38" rx="6" fill="#7B1034"/>
+  <text x="550" y="64" text-anchor="middle" fill="white" font-size="15" font-weight="bold">PRODUTO</text>
+  <rect x="430" y="78" width="240" height="258" rx="0" fill="#FFF0F6" stroke="#7B1034" stroke-width="1.5"/>
+
+  <rect x="430" y="78" width="240" height="32" fill="#F5C8DC" stroke="#7B1034" stroke-width="0.5"/>
+  <text x="446" y="99" fill="#7B1034" font-size="12" font-weight="bold">🔑 id_produto</text>
+  <text x="620" y="99" text-anchor="end" fill="#888" font-size="11">INT (PK)</text>
+
+  <rect x="430" y="110" width="240" height="30" fill="#FFF0F6" stroke="#eee" stroke-width="0.5"/>
+  <text x="446" y="130" fill="#333" font-size="12">nome</text>
+  <text x="620" y="130" text-anchor="end" fill="#888" font-size="11">VARCHAR(100)</text>
+
+  <rect x="430" y="140" width="240" height="30" fill="#FFF0F6" stroke="#eee" stroke-width="0.5"/>
+  <text x="446" y="160" fill="#333" font-size="12">descricao</text>
+  <text x="620" y="160" text-anchor="end" fill="#888" font-size="11">TEXT</text>
+
+  <rect x="430" y="170" width="240" height="30" fill="#FFF0F6" stroke="#eee" stroke-width="0.5"/>
+  <text x="446" y="190" fill="#333" font-size="12">codigo_barras</text>
+  <text x="620" y="190" text-anchor="end" fill="#888" font-size="11">VARCHAR(50)</text>
+
+  <rect x="430" y="200" width="240" height="30" fill="#FFF0F6" stroke="#eee" stroke-width="0.5"/>
+  <text x="446" y="220" fill="#333" font-size="12">peso_kg</text>
+  <text x="620" y="220" text-anchor="end" fill="#888" font-size="11">DECIMAL(10,3)</text>
+
+  <rect x="430" y="230" width="240" height="30" fill="#FFF0F6" stroke="#eee" stroke-width="0.5"/>
+  <text x="446" y="250" fill="#333" font-size="12">preco_unitario</text>
+  <text x="620" y="250" text-anchor="end" fill="#888" font-size="11">DECIMAL(10,2)</text>
+
+  <rect x="430" y="260" width="240" height="30" fill="#FFF0F6" stroke="#eee" stroke-width="0.5"/>
+  <text x="446" y="280" fill="#333" font-size="12">criado_em</text>
+  <text x="620" y="280" text-anchor="end" fill="#888" font-size="11">DATETIME</text>
+
+  <rect x="430" y="290" width="240" height="30" fill="#FFF0F6" stroke="#eee" stroke-width="0.5"/>
+  <text x="446" y="310" fill="#333" font-size="12">atualizado_em</text>
+  <text x="620" y="310" text-anchor="end" fill="#888" font-size="11">DATETIME</text>
+
+  <rect x="430" y="336" width="240" height="2" fill="#7B1034"/>
+
+  <!-- ===== ENTITY: ESTOQUE ===== -->
+  <rect x="810" y="40" width="255" height="38" rx="6" fill="#2D6A8F"/>
+  <text x="937" y="64" text-anchor="middle" fill="white" font-size="15" font-weight="bold">ESTOQUE</text>
+  <rect x="810" y="78" width="255" height="288" rx="0" fill="#EFF7FC" stroke="#2D6A8F" stroke-width="1.5"/>
+
+  <rect x="810" y="78" width="255" height="32" fill="#C9E4F0" stroke="#2D6A8F" stroke-width="0.5"/>
+  <text x="826" y="99" fill="#2D6A8F" font-size="12" font-weight="bold">🔑 id_estoque</text>
+  <text x="1010" y="99" text-anchor="end" fill="#888" font-size="11">INT (PK)</text>
+
+  <rect x="810" y="110" width="255" height="30" fill="#EFF7FC" stroke="#eee" stroke-width="0.5"/>
+  <text x="826" y="130" fill="#C0185C" font-size="12" font-weight="bold">🔗 id_produto</text>
+  <text x="1010" y="130" text-anchor="end" fill="#888" font-size="11">INT (FK)</text>
+
+  <rect x="810" y="140" width="255" height="30" fill="#EFF7FC" stroke="#eee" stroke-width="0.5"/>
+  <text x="826" y="160" fill="#C0185C" font-size="12" font-weight="bold">🔗 id_usuario</text>
+  <text x="1010" y="160" text-anchor="end" fill="#888" font-size="11">INT (FK)</text>
+
+  <rect x="810" y="170" width="255" height="30" fill="#EFF7FC" stroke="#eee" stroke-width="0.5"/>
+  <text x="826" y="190" fill="#333" font-size="12">quantidade</text>
+  <text x="1010" y="190" text-anchor="end" fill="#888" font-size="11">INT</text>
+
+  <rect x="810" y="200" width="255" height="30" fill="#EFF7FC" stroke="#eee" stroke-width="0.5"/>
+  <text x="826" y="220" fill="#333" font-size="12">estoque_minimo</text>
+  <text x="1010" y="220" text-anchor="end" fill="#888" font-size="11">INT</text>
+
+  <rect x="810" y="230" width="255" height="30" fill="#EFF7FC" stroke="#eee" stroke-width="0.5"/>
+  <text x="826" y="250" fill="#333" font-size="12">localizacao</text>
+  <text x="1010" y="250" text-anchor="end" fill="#888" font-size="11">VARCHAR(100)</text>
+
+  <rect x="810" y="260" width="255" height="30" fill="#EFF7FC" stroke="#eee" stroke-width="0.5"/>
+  <text x="826" y="280" fill="#333" font-size="12">ultima_atualizacao</text>
+  <text x="1010" y="280" text-anchor="end" fill="#888" font-size="11">DATETIME</text>
+
+  <rect x="810" y="290" width="255" height="30" fill="#EFF7FC" stroke="#eee" stroke-width="0.5"/>
+  <text x="826" y="310" fill="#333" font-size="12">criado_em</text>
+  <text x="1010" y="310" text-anchor="end" fill="#888" font-size="11">DATETIME</text>
+
+  <rect x="810" y="320" width="255" height="30" fill="#EFF7FC" stroke="#eee" stroke-width="0.5"/>
+  <text x="826" y="340" fill="#333" font-size="12">atualizado_em</text>
+  <text x="1010" y="340" text-anchor="end" fill="#888" font-size="11">DATETIME</text>
+
+  <rect x="810" y="366" width="255" height="2" fill="#2D6A8F"/>
+
+  <!-- ===== ENTITY: PACOTE ===== -->
+  <rect x="30" y="440" width="240" height="38" rx="6" fill="#C0185C"/>
+  <text x="150" y="464" text-anchor="middle" fill="white" font-size="15" font-weight="bold">PACOTE</text>
+  <rect x="30" y="478" width="240" height="228" rx="0" fill="#FFF5F8" stroke="#C0185C" stroke-width="1.5"/>
+
+  <rect x="30" y="478" width="240" height="32" fill="#FFE5EE" stroke="#C0185C" stroke-width="0.5"/>
+  <text x="46" y="499" fill="#C0185C" font-size="12" font-weight="bold">🔑 id_pacote</text>
+  <text x="218" y="499" text-anchor="end" fill="#888" font-size="11">INT (PK)</text>
+
+  <rect x="30" y="510" width="240" height="30" fill="#FFF5F8" stroke="#eee" stroke-width="0.5"/>
+  <text x="46" y="530" fill="#C0185C" font-size="12" font-weight="bold">🔗 id_usuario</text>
+  <text x="218" y="530" text-anchor="end" fill="#888" font-size="11">INT (FK)</text>
+
+  <rect x="30" y="540" width="240" height="30" fill="#FFF5F8" stroke="#eee" stroke-width="0.5"/>
+  <text x="46" y="560" fill="#C0185C" font-size="12" font-weight="bold">🔗 id_produto</text>
+  <text x="218" y="560" text-anchor="end" fill="#888" font-size="11">INT (FK)</text>
+
+  <rect x="30" y="570" width="240" height="30" fill="#FFF5F8" stroke="#eee" stroke-width="0.5"/>
+  <text x="46" y="590" fill="#333" font-size="12">nome</text>
+  <text x="218" y="590" text-anchor="end" fill="#888" font-size="11">VARCHAR(100)</text>
+
+  <rect x="30" y="600" width="240" height="30" fill="#FFF5F8" stroke="#eee" stroke-width="0.5"/>
+  <text x="46" y="620" fill="#333" font-size="12">codigo_rastreio</text>
+  <text x="218" y="620" text-anchor="end" fill="#888" font-size="11">VARCHAR(50) UNIQUE</text>
+
+  <rect x="30" y="630" width="240" height="30" fill="#FFF5F8" stroke="#eee" stroke-width="0.5"/>
+  <text x="46" y="650" fill="#333" font-size="12">remetente / destinatario</text>
+  <text x="218" y="650" text-anchor="end" fill="#888" font-size="11">VARCHAR(100)</text>
+
+  <rect x="30" y="660" width="240" height="30" fill="#FFF5F8" stroke="#eee" stroke-width="0.5"/>
+  <text x="46" y="680" fill="#333" font-size="12">preco / peso_kg / qtd</text>
+  <text x="218" y="680" text-anchor="end" fill="#888" font-size="11">DECIMAL / INT</text>
+
+  <rect x="30" y="690" width="240" height="16" fill="#FFF5F8" stroke="#eee" stroke-width="0.5"/>
+  <text x="46" y="702" fill="#333" font-size="11">status: ENUM(Pendente,Em Rota,Entregue)</text>
+
+  <rect x="30" y="706" width="240" height="2" fill="#C0185C"/>
+
+  <!-- ===== ENTITY: MOVIMENTACAO_ESTOQUE ===== -->
+  <rect x="430" y="440" width="270" height="38" rx="6" fill="#5A7A2E"/>
+  <text x="565" y="464" text-anchor="middle" fill="white" font-size="15" font-weight="bold">MOVIMENTACAO_ESTOQUE</text>
+  <rect x="430" y="478" width="270" height="228" rx="0" fill="#F4FAF0" stroke="#5A7A2E" stroke-width="1.5"/>
+
+  <rect x="430" y="478" width="270" height="32" fill="#D9EEC7" stroke="#5A7A2E" stroke-width="0.5"/>
+  <text x="446" y="499" fill="#5A7A2E" font-size="12" font-weight="bold">🔑 id_movimentacao</text>
+  <text x="648" y="499" text-anchor="end" fill="#888" font-size="11">INT (PK)</text>
+
+  <rect x="430" y="510" width="270" height="30" fill="#F4FAF0" stroke="#eee" stroke-width="0.5"/>
+  <text x="446" y="530" fill="#C0185C" font-size="12" font-weight="bold">🔗 id_estoque</text>
+  <text x="648" y="530" text-anchor="end" fill="#888" font-size="11">INT (FK)</text>
+
+  <rect x="430" y="540" width="270" height="30" fill="#F4FAF0" stroke="#eee" stroke-width="0.5"/>
+  <text x="446" y="560" fill="#C0185C" font-size="12" font-weight="bold">🔗 id_usuario</text>
+  <text x="648" y="560" text-anchor="end" fill="#888" font-size="11">INT (FK)</text>
+
+  <rect x="430" y="570" width="270" height="30" fill="#F4FAF0" stroke="#eee" stroke-width="0.5"/>
+  <text x="446" y="590" fill="#333" font-size="12">tipo_mov</text>
+  <text x="648" y="590" text-anchor="end" fill="#888" font-size="11">ENUM(Entrada,Saida,Ajuste)</text>
+
+  <rect x="430" y="600" width="270" height="30" fill="#F4FAF0" stroke="#eee" stroke-width="0.5"/>
+  <text x="446" y="620" fill="#333" font-size="12">quantidade</text>
+  <text x="648" y="620" text-anchor="end" fill="#888" font-size="11">INT</text>
+
+  <rect x="430" y="630" width="270" height="30" fill="#F4FAF0" stroke="#eee" stroke-width="0.5"/>
+  <text x="446" y="650" fill="#333" font-size="12">observacao</text>
+  <text x="648" y="650" text-anchor="end" fill="#888" font-size="11">TEXT</text>
+
+  <rect x="430" y="660" width="270" height="30" fill="#F4FAF0" stroke="#eee" stroke-width="0.5"/>
+  <text x="446" y="680" fill="#333" font-size="12">data_movimentacao</text>
+  <text x="648" y="680" text-anchor="end" fill="#888" font-size="11">DATETIME</text>
+
+  <rect x="430" y="706" width="270" height="2" fill="#5A7A2E"/>
+
+  <!-- ===== RELATIONSHIPS (lines) ===== -->
+
+  <!-- USUARIO 1 -- N PACOTE (vertical: from USUARIO bottom to PACOTE top) -->
+  <line x1="140" y1="338" x2="140" y2="440" stroke="#C0185C" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrowRed)"/>
+  <text x="152" y="394" fill="#C0185C" font-size="11" font-weight="bold">1</text>
+  <text x="152" y="432" fill="#C0185C" font-size="11" font-weight="bold">N</text>
+  <text x="44" y="396" fill="#C0185C" font-size="10">cadastra</text>
+
+  <!-- PRODUTO 1 -- N PACOTE (vertical) -->
+  <line x1="550" y1="338" x2="200" y2="478" stroke="#7B1034" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+  <text x="432" y="424" fill="#7B1034" font-size="10">1..N</text>
+
+  <!-- PRODUTO 1 -- 1 ESTOQUE (horizontal) -->
+  <line x1="670" y1="150" x2="810" y2="150" stroke="#2D6A8F" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="712" y="143" fill="#2D6A8F" font-size="11" font-weight="bold">1</text>
+  <text x="784" y="143" fill="#2D6A8F" font-size="11" font-weight="bold">1</text>
+  <text x="706" y="165" fill="#2D6A8F" font-size="10">tem estoque</text>
+
+  <!-- USUARIO 1 -- N ESTOQUE (arc-like: go right then up) -->
+  <polyline points="250,200 380,200 380,160 810,160" stroke="#888" stroke-width="1.5" stroke-dasharray="5,3" fill="none" marker-end="url(#arrow)"/>
+  <text x="354" y="155" fill="#888" font-size="10">gerencia</text>
+
+  <!-- ESTOQUE 1 -- N MOVIMENTACAO (vertical) -->
+  <line x1="937" y1="368" x2="700" y2="478" stroke="#5A7A2E" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+  <text x="844" y="420" fill="#5A7A2E" font-size="10">1..N mov.</text>
+
+  <!-- USUARIO 1 -- N MOVIMENTACAO (line) -->
+  <polyline points="250,280 400,280 400,620 430,620" stroke="#888" stroke-width="1.5" stroke-dasharray="5,3" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- ===== LEGEND ===== -->
+  <rect x="810" y="430" width="255" height="140" rx="6" fill="#F9F9F9" stroke="#ccc" stroke-width="1"/>
+  <text x="937" y="450" text-anchor="middle" fill="#555" font-size="13" font-weight="bold">Legenda</text>
+  <rect x="826" y="460" width="30" height="12" fill="#FFE5EE" stroke="#C0185C" stroke-width="1"/>
+  <text x="862" y="471" fill="#333" font-size="11">Entidade Principal</text>
+  <rect x="826" y="480" width="30" height="12" fill="#C9E4F0" stroke="#2D6A8F" stroke-width="1"/>
+  <text x="862" y="491" fill="#333" font-size="11">Entidade de Controle</text>
+  <rect x="826" y="500" width="30" height="12" fill="#D9EEC7" stroke="#5A7A2E" stroke-width="1"/>
+  <text x="862" y="511" fill="#333" font-size="11">Entidade de Auditoria</text>
+  <line x1="826" y1="528" x2="856" y2="528" stroke="#C0185C" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="862" y="533" fill="#333" font-size="11">Relação 1:N (FK obrig.)</text>
+  <line x1="826" y1="548" x2="856" y2="548" stroke="#888" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="862" y="553" fill="#333" font-size="11">Relação auxiliar</text>
+  <text x="826" y="565" fill="#C0185C" font-size="11">🔑 PK   🔗 FK</text>
+
+</svg>
+</body>
+</html>

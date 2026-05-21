@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Pacote;
 use Illuminate\Http\Request;
 
+
+
+
 class PacoteController extends Controller
 {
     public function index(Request $request)
@@ -94,4 +97,5 @@ class PacoteController extends Controller
         return redirect()->route('pacotes.index')
                          ->with('sucesso', 'Pacote removido com sucesso!');
     }
+
 }

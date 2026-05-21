@@ -26,7 +26,6 @@
             overflow-x: hidden;
         }
 
-        /* ── Background decorativo ── */
         .bg-blobs {
             position: fixed;
             inset: 0;
@@ -77,7 +76,6 @@
             66%       { transform: translate(-20px, 20px) scale(.96); }
         }
 
-        /* ── Layout ── */
         .page {
             position: relative;
             z-index: 1;
@@ -86,7 +84,6 @@
             flex-direction: column;
         }
 
-        /* ── Nav ── */
         .nav {
             display: flex;
             align-items: center;
@@ -159,7 +156,6 @@
             box-shadow: 0 10px 22px rgba(244,63,94,.30);
         }
 
-        /* ── Hero ── */
         .hero {
             flex: 1;
             display: flex;
@@ -278,7 +274,6 @@
             transform: translateY(-1px);
         }
 
-        /* ── Cards de features ── */
         .features {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -325,7 +320,6 @@
             line-height: 1.6;
         }
 
-        /* ── Footer ── */
         .footer {
             text-align: center;
             padding: 24px;
@@ -339,13 +333,11 @@
             font-weight: 600;
         }
 
-        /* ── Animações ── */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── Responsive ── */
         @media (max-width: 768px) {
             .nav { padding: 16px 20px; }
             .features { grid-template-columns: 1fr; max-width: 400px; }
@@ -359,7 +351,6 @@
 </head>
 <body>
 
-{{-- Blobs de fundo --}}
 <div class="bg-blobs">
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
@@ -370,15 +361,15 @@
 
     {{-- Nav --}}
     <nav class="nav">
-        <a href="#" class="nav-logo">
+        <a href="{{ url('/') }}" class="nav-logo">
             <div class="nav-logo-icon">📦</div>
-            <span class="nav-logo-text">Packt<span>.</span></span>
+            <span class="nav-logo-text">Ship<span>-</span>Smart</span>
         </a>
 
         @if (Route::has('login'))
             <div class="nav-links">
                 @auth
-                    <a href="{{ url('/dashboard') }}" class="nav-btn nav-btn-ghost">Dashboard</a>
+                    <a href="{{ route('pacotes.index') }}" class="nav-btn nav-btn-ghost">Ver Pacotes</a>
                 @else
                     <a href="{{ route('login') }}" class="nav-btn nav-btn-ghost">Entrar</a>
                     @if (Route::has('register'))
@@ -408,8 +399,8 @@
 
         <div class="hero-actions">
             @auth
-                <a href="{{ url('/dashboard') }}" class="btn-hero-primary">
-                    Ir para o Dashboard →
+                <a href="{{ route('pacotes.index') }}" class="btn-hero-primary">
+                    Ir para Meus Pacotes →
                 </a>
             @else
                 @if (Route::has('register'))
@@ -443,7 +434,6 @@
         </div>
     </main>
 
-    {{-- Footer --}}
     <footer class="footer">
         Feito com ♥ usando <a href="https://laravel.com" target="_blank">Laravel</a>
     </footer>
