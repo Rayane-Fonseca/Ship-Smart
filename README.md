@@ -21,8 +21,9 @@
 
 ---
 
-## Estrutura de Arquivos
+## 2. Estrutura de Arquivos
 
+```
 ship-smart-analytics/
 ├── app/
 │   ├── Http/Controllers/
@@ -51,3 +52,6 @@ ship-smart-analytics/
 │   └── auth/                      (gerado pelo Breeze)
 └── routes/
     └── web.php
+```
+
+---
