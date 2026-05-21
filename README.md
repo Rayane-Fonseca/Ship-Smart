@@ -51,9 +51,3 @@ ship-smart-analytics/
 │   └── auth/                      (gerado pelo Breeze)
 └── routes/
     └── web.php
-
-
-
-# Iniciar
-php artisan serve
-```
