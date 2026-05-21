@@ -27,7 +27,7 @@
 ship-smart-analytics/
 ├── app/
 │   ├── Http/Controllers/
-│   │   ├── Auth/                  (gerado pelo Breeze)
+│   │   ├── Auth/                  
 │   │   ├── DashboardController.php
 │   │   ├── PacoteController.php
 │   │   └── UsuarioController.php
@@ -36,20 +36,20 @@ ship-smart-analytics/
 │       └── Pacote.php
 ├── database/
 │   ├── migrations/
-│   │   ├── ..._create_users_table.php    (Breeze)
+│   │   ├── ..._create_users_table.php    
 │   │   └── ..._create_pacotes_table.php
 │   └── seeders/
 │       └── DatabaseSeeder.php
 ├── resources/views/
 │   ├── layouts/
-│   │   └── app.blade.php          (layout completo)
+│   │   └── app.blade.php         
 │   ├── dashboard.blade.php
 │   ├── pacotes/
 │   │   ├── index.blade.php
 │   │   ├── create.blade.php
 │   │   ├── edit.blade.php
 │   │   └── show.blade.php
-│   └── auth/                      (gerado pelo Breeze)
+│   └── auth/                      
 └── routes/
     └── web.php
 ```
