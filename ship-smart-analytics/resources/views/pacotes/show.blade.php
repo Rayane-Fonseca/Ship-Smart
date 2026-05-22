@@ -76,7 +76,7 @@
         border: 1px solid #fce7f3;
         border-radius: 18px;
         overflow: hidden;
-        box-shadow: 0 1px 2px rgba(0,0,0,.04);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
         max-width: 780px;
         margin: 0 auto;
     }
@@ -135,14 +135,32 @@
         flex-shrink: 0;
     }
 
-    .badge-pendente  { background: #fdf2f8; color: #be185d; }
-    .badge-pendente::before  { background: #f472b6; }
+    .badge-pendente {
+        background: #fdf2f8;
+        color: #be185d;
+    }
 
-    .badge-emrota    { background: #fdf4ff; color: #a21caf; }
-    .badge-emrota::before    { background: #d946ef; }
+    .badge-pendente::before {
+        background: #f472b6;
+    }
 
-    .badge-entregue  { background: #ecfdf5; color: #047857; }
-    .badge-entregue::before  { background: #34d399; }
+    .badge-emrota {
+        background: #fdf4ff;
+        color: #a21caf;
+    }
+
+    .badge-emrota::before {
+        background: #d946ef;
+    }
+
+    .badge-entregue {
+        background: #ecfdf5;
+        color: #047857;
+    }
+
+    .badge-entregue::before {
+        background: #34d399;
+    }
 
     /* Grid de campos */
     .detail-body {
@@ -295,12 +313,12 @@
         </div>
 
         @php
-            $badge = match($pacote->status) {
-                'Pendente' => 'badge-pendente',
-                'Em Rota'  => 'badge-emrota',
-                'Entregue' => 'badge-entregue',
-                default    => 'badge-pendente',
-            };
+        $badge = match($pacote->status) {
+        'Pendente' => 'badge-pendente',
+        'Em Rota' => 'badge-emrota',
+        'Entregue' => 'badge-entregue',
+        default => 'badge-pendente',
+        };
         @endphp
         <span class="badge {{ $badge }}">{{ $pacote->status }}</span>
     </div>
@@ -364,7 +382,7 @@
             ✏️ Editar
         </a>
         <form method="POST" action="{{ route('pacotes.destroy', $pacote) }}"
-              onsubmit="return confirm('Confirmar exclusão?')" style="margin:0">
+            onsubmit="return confirm('Confirmar exclusão?')" style="margin:0">
             @csrf @method('DELETE')
             <button type="submit" class="btn-excluir">
                 🗑️ Excluir

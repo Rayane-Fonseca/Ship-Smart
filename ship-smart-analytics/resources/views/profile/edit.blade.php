@@ -1,26 +1,26 @@
 @extends('layouts.app')
 
 @php
-    $user = auth()->user();
+$user = auth()->user();
 
-    $funcionariosGerenciados = $funcionariosGerenciados ?? 284;
-    $pacotesHora             = $pacotesHora ?? 3240;
-    $rotasOtimizadas         = $rotasOtimizadas ?? 96;
-    $eficienciaOperacional   = $eficienciaOperacional ?? 92;
+$funcionariosGerenciados = $funcionariosGerenciados ?? 284;
+$pacotesHora = $pacotesHora ?? 3240;
+$rotasOtimizadas = $rotasOtimizadas ?? 96;
+$eficienciaOperacional = $eficienciaOperacional ?? 92;
 
-    $setores = $setores ?? collect([
-        (object) ['nome' => 'Recebimento', 'colaboradores' => 48, 'status' => 'estável'],
-        (object) ['nome' => 'Separação', 'colaboradores' => 76, 'status' => 'alta demanda'],
-        (object) ['nome' => 'Expedição', 'colaboradores' => 61, 'status' => 'otimizado'],
-        (object) ['nome' => 'Roteirização', 'colaboradores' => 19, 'status' => 'estratégico'],
-    ]);
+$setores = $setores ?? collect([
+(object) ['nome' => 'Recebimento', 'colaboradores' => 48, 'status' => 'estável'],
+(object) ['nome' => 'Separação', 'colaboradores' => 76, 'status' => 'alta demanda'],
+(object) ['nome' => 'Expedição', 'colaboradores' => 61, 'status' => 'otimizado'],
+(object) ['nome' => 'Roteirização', 'colaboradores' => 19, 'status' => 'estratégico'],
+]);
 
-    $atividades = $atividades ?? collect([
-        (object) ['acao' => 'Atualizou regras de priorização de rotas', 'tempo' => 'Há 12 min'],
-        (object) ['acao' => 'Revisou desempenho da equipe da expedição', 'tempo' => 'Há 28 min'],
-        (object) ['acao' => 'Aprovou ajuste de fluxo no corredor B', 'tempo' => 'Há 1 hora'],
-        (object) ['acao' => 'Exportou relatório operacional', 'tempo' => 'Hoje, 08:40'],
-    ]);
+$atividades = $atividades ?? collect([
+(object) ['acao' => 'Atualizou regras de priorização de rotas', 'tempo' => 'Há 12 min'],
+(object) ['acao' => 'Revisou desempenho da equipe da expedição', 'tempo' => 'Há 28 min'],
+(object) ['acao' => 'Aprovou ajuste de fluxo no corredor B', 'tempo' => 'Há 1 hora'],
+(object) ['acao' => 'Exportou relatório operacional', 'tempo' => 'Hoje, 08:40'],
+]);
 @endphp
 
 @section('content')
@@ -61,8 +61,13 @@
         transition: .15s;
     }
 
-    .breadcrumb a:hover { color: #e11d48; }
-    .breadcrumb strong { color: #e11d48; }
+    .breadcrumb a:hover {
+        color: #e11d48;
+    }
+
+    .breadcrumb strong {
+        color: #e11d48;
+    }
 
     .page-title {
         font-size: 28px;
@@ -88,7 +93,7 @@
         font-size: 14px;
         font-weight: 600;
         background: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%);
-        box-shadow: 0 8px 18px rgba(244,63,94,.22);
+        box-shadow: 0 8px 18px rgba(244, 63, 94, .22);
         transition: .2s ease;
         border: none;
         cursor: pointer;
@@ -97,7 +102,7 @@
 
     .btn-primary:hover {
         transform: translateY(-2px);
-        box-shadow: 0 12px 24px rgba(244,63,94,.30);
+        box-shadow: 0 12px 24px rgba(244, 63, 94, .30);
         color: #fff;
     }
 
@@ -116,7 +121,7 @@
         background: #fff;
         border: 1px solid #fce7f3;
         border-radius: 20px;
-        box-shadow: 0 1px 3px rgba(0,0,0,.04);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .04);
     }
 
     .hero-card {
@@ -133,7 +138,7 @@
         border-radius: inherit;
         opacity: 0;
         transition: opacity .22s ease;
-        background: linear-gradient(135deg, rgba(244,63,94,.03) 0%, rgba(236,72,153,.03) 100%);
+        background: linear-gradient(135deg, rgba(244, 63, 94, .03) 0%, rgba(236, 72, 153, .03) 100%);
         pointer-events: none;
     }
 
@@ -262,7 +267,7 @@
 
     .stat-card:hover {
         transform: translateY(-3px);
-        box-shadow: 0 12px 28px rgba(0,0,0,.08);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, .08);
     }
 
     .stat-top {
@@ -284,10 +289,21 @@
         flex-shrink: 0;
     }
 
-    .icon-func { background: #fff1f2; }
-    .icon-pacotes { background: #fdf2f8; }
-    .icon-rotas { background: #fdf4ff; }
-    .icon-efi { background: #ecfdf5; }
+    .icon-func {
+        background: #fff1f2;
+    }
+
+    .icon-pacotes {
+        background: #fdf2f8;
+    }
+
+    .icon-rotas {
+        background: #fdf4ff;
+    }
+
+    .icon-efi {
+        background: #ecfdf5;
+    }
 
     .stat-pct {
         font-size: 11px;
@@ -297,10 +313,25 @@
         white-space: nowrap;
     }
 
-    .pct-neutral { color: #6b7280; background: #f3f4f6; }
-    .pct-warn { color: #b45309; background: #fffbeb; }
-    .pct-move { color: #7c3aed; background: #f5f3ff; }
-    .pct-ok { color: #047857; background: #ecfdf5; }
+    .pct-neutral {
+        color: #6b7280;
+        background: #f3f4f6;
+    }
+
+    .pct-warn {
+        color: #b45309;
+        background: #fffbeb;
+    }
+
+    .pct-move {
+        color: #7c3aed;
+        background: #f5f3ff;
+    }
+
+    .pct-ok {
+        color: #047857;
+        background: #ecfdf5;
+    }
 
     .stat-value {
         font-size: 34px;
@@ -328,14 +359,29 @@
     .stat-bar-fill {
         height: 100%;
         border-radius: 999px;
-        transition: width .6s cubic-bezier(.4,0,.2,1);
+        transition: width .6s cubic-bezier(.4, 0, .2, 1);
         min-width: 4px;
     }
 
-    .fill-func { background: linear-gradient(90deg, #fb7185, #ec4899); width: 78%; }
-    .fill-pacotes { background: linear-gradient(90deg, #f472b6, #d946ef); width: 92%; }
-    .fill-rotas { background: linear-gradient(90deg, #e879f9, #f472b6); width: 96%; }
-    .fill-efi { background: linear-gradient(90deg, #34d399, #14b8a6); width: 92%; }
+    .fill-func {
+        background: linear-gradient(90deg, #fb7185, #ec4899);
+        width: 78%;
+    }
+
+    .fill-pacotes {
+        background: linear-gradient(90deg, #f472b6, #d946ef);
+        width: 92%;
+    }
+
+    .fill-rotas {
+        background: linear-gradient(90deg, #e879f9, #f472b6);
+        width: 96%;
+    }
+
+    .fill-efi {
+        background: linear-gradient(90deg, #34d399, #14b8a6);
+        width: 92%;
+    }
 
     .content-grid {
         display: grid;
@@ -388,7 +434,9 @@
         color: #be123c;
     }
 
-    .table-wrap { overflow-x: auto; }
+    .table-wrap {
+        overflow-x: auto;
+    }
 
     .dashboard-table {
         width: 100%;
@@ -449,28 +497,36 @@
         color: #1d4ed8;
     }
 
-    .status-estavel::before { background: #60a5fa; }
+    .status-estavel::before {
+        background: #60a5fa;
+    }
 
     .status-alta-demanda {
         background: #fffbeb;
         color: #b45309;
     }
 
-    .status-alta-demanda::before { background: #f59e0b; }
+    .status-alta-demanda::before {
+        background: #f59e0b;
+    }
 
     .status-otimizado {
         background: #ecfdf5;
         color: #047857;
     }
 
-    .status-otimizado::before { background: #34d399; }
+    .status-otimizado::before {
+        background: #34d399;
+    }
 
     .status-estrategico {
         background: #fdf4ff;
         color: #a21caf;
     }
 
-    .status-estrategico::before { background: #d946ef; }
+    .status-estrategico::before {
+        background: #d946ef;
+    }
 
     .sidebar-stack {
         display: grid;
@@ -544,6 +600,7 @@
     }
 
     @media (max-width: 1180px) {
+
         .profile-hero,
         .content-grid {
             grid-template-columns: 1fr;
@@ -670,7 +727,9 @@
             </div>
             <div class="stat-value">{{ number_format($funcionariosGerenciados, 0, ',', '.') }}</div>
             <div class="stat-label">Funcionários gerenciados</div>
-            <div class="stat-bar"><div class="stat-bar-fill fill-func"></div></div>
+            <div class="stat-bar">
+                <div class="stat-bar-fill fill-func"></div>
+            </div>
         </div>
 
         <div class="stat-card">
@@ -680,7 +739,9 @@
             </div>
             <div class="stat-value">{{ number_format($pacotesHora, 0, ',', '.') }}</div>
             <div class="stat-label">Pacotes por hora</div>
-            <div class="stat-bar"><div class="stat-bar-fill fill-pacotes"></div></div>
+            <div class="stat-bar">
+                <div class="stat-bar-fill fill-pacotes"></div>
+            </div>
         </div>
 
         <div class="stat-card">
@@ -690,7 +751,9 @@
             </div>
             <div class="stat-value">{{ $rotasOtimizadas }}</div>
             <div class="stat-label">Índice de rotas otimizadas</div>
-            <div class="stat-bar"><div class="stat-bar-fill fill-rotas"></div></div>
+            <div class="stat-bar">
+                <div class="stat-bar-fill fill-rotas"></div>
+            </div>
         </div>
 
         <div class="stat-card">
@@ -700,7 +763,9 @@
             </div>
             <div class="stat-value">{{ $eficienciaOperacional }}</div>
             <div class="stat-label">Eficiência operacional</div>
-            <div class="stat-bar"><div class="stat-bar-fill fill-efi"></div></div>
+            <div class="stat-bar">
+                <div class="stat-bar-fill fill-efi"></div>
+            </div>
         </div>
     </div>
 
@@ -726,25 +791,25 @@
                     </thead>
                     <tbody>
                         @foreach($setores as $setor)
-                            @php
-                                $statusClass = match(strtolower(str_replace(' ', '-', $setor->status))) {
-                                    'estável', 'estavel' => 'status-estavel',
-                                    'alta-demanda' => 'status-alta-demanda',
-                                    'otimizado' => 'status-otimizado',
-                                    'estratégico', 'estrategico' => 'status-estrategico',
-                                    default => 'status-estavel',
-                                };
-                            @endphp
+                        @php
+                        $statusClass = match(strtolower(str_replace(' ', '-', $setor->status))) {
+                        'estável', 'estavel' => 'status-estavel',
+                        'alta-demanda' => 'status-alta-demanda',
+                        'otimizado' => 'status-otimizado',
+                        'estratégico', 'estrategico' => 'status-estrategico',
+                        default => 'status-estavel',
+                        };
+                        @endphp
 
-                            <tr>
-                                <td>{{ $setor->nome }}</td>
-                                <td>{{ number_format($setor->colaboradores, 0, ',', '.') }}</td>
-                                <td>
-                                    <span class="status-badge {{ $statusClass }}">
-                                        {{ ucfirst($setor->status) }}
-                                    </span>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td>{{ $setor->nome }}</td>
+                            <td>{{ number_format($setor->colaboradores, 0, ',', '.') }}</td>
+                            <td>
+                                <span class="status-badge {{ $statusClass }}">
+                                    {{ ucfirst($setor->status) }}
+                                </span>
+                            </td>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -765,10 +830,10 @@
                 <div class="insight-title">Atividades recentes</div>
                 <div class="activity-list">
                     @foreach($atividades as $atividade)
-                        <div class="activity-item">
-                            <div class="activity-action">{{ $atividade->acao }}</div>
-                            <div class="activity-time">{{ $atividade->tempo }}</div>
-                        </div>
+                    <div class="activity-item">
+                        <div class="activity-action">{{ $atividade->acao }}</div>
+                        <div class="activity-time">{{ $atividade->tempo }}</div>
+                    </div>
                     @endforeach
                 </div>
             </div>

@@ -71,7 +71,7 @@
         border-radius: 18px;
         padding: 20px 24px;
         margin-bottom: 24px;
-        box-shadow: 0 1px 2px rgba(0,0,0,.04);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
     }
 
     .filter-form {
@@ -158,7 +158,7 @@
         border: 1px solid #fce7f3;
         border-radius: 18px;
         overflow: hidden;
-        box-shadow: 0 1px 2px rgba(0,0,0,.04);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
     }
 
     .table-card-header {
@@ -413,16 +413,16 @@
         <div class="filter-group flex-1">
             <label class="filter-label">Buscar</label>
             <input type="text" name="busca" value="{{ request('busca') }}"
-                   placeholder="Código, destinatário ou nome..."
-                   class="filter-input">
+                placeholder="Código, destinatário ou nome..."
+                class="filter-input">
         </div>
         <div class="filter-group">
             <label class="filter-label">Status</label>
             <select name="status" class="filter-select">
                 <option value="">Todos</option>
-                <option value="Pendente"  {{ request('status') == 'Pendente'  ? 'selected' : '' }}>Pendente</option>
-                <option value="Em Rota"   {{ request('status') == 'Em Rota'   ? 'selected' : '' }}>Em Rota</option>
-                <option value="Entregue"  {{ request('status') == 'Entregue'  ? 'selected' : '' }}>Entregue</option>
+                <option value="Pendente" {{ request('status') == 'Pendente'  ? 'selected' : '' }}>Pendente</option>
+                <option value="Em Rota" {{ request('status') == 'Em Rota'   ? 'selected' : '' }}>Em Rota</option>
+                <option value="Entregue" {{ request('status') == 'Entregue'  ? 'selected' : '' }}>Entregue</option>
             </select>
         </div>
         <button type="submit" class="btn-filter">Filtrar</button>
@@ -464,12 +464,12 @@
                     <td>{{ $pacote->quantidade }}</td>
                     <td>
                         @php
-                            $badge = match($pacote->status) {
-                                'Pendente' => 'badge-pendente',
-                                'Em Rota'  => 'badge-emrota',
-                                'Entregue' => 'badge-entregue',
-                                default    => 'badge-pendente',
-                            };
+                        $badge = match($pacote->status) {
+                        'Pendente' => 'badge-pendente',
+                        'Em Rota' => 'badge-emrota',
+                        'Entregue' => 'badge-entregue',
+                        default => 'badge-pendente',
+                        };
                         @endphp
                         <span class="badge {{ $badge }}">{{ $pacote->status }}</span>
                     </td>
@@ -478,7 +478,7 @@
                             <a href="{{ route('pacotes.show', $pacote) }}" class="action-btn action-ver">Ver</a>
                             <a href="{{ route('pacotes.edit', $pacote) }}" class="action-btn action-editar">Editar</a>
                             <form method="POST" action="{{ route('pacotes.destroy', $pacote) }}"
-                                  onsubmit="return confirm('Confirmar exclusão?')" style="margin:0">
+                                onsubmit="return confirm('Confirmar exclusão?')" style="margin:0">
                                 @csrf @method('DELETE')
                                 <button type="submit" class="action-btn action-excluir">Excluir</button>
                             </form>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -70,7 +71,7 @@
             z-index: 1;
             width: 100%;
             max-width: 430px;
-            background: rgba(255,255,255,.9);
+            background: rgba(255, 255, 255, .9);
             backdrop-filter: blur(12px);
             border: 1px solid var(--pink-lt);
             border-radius: 24px;
@@ -124,7 +125,7 @@
 
         .field input:focus {
             border-color: var(--pink);
-            box-shadow: 0 0 0 4px rgba(244,63,94,.12);
+            box-shadow: 0 0 0 4px rgba(244, 63, 94, .12);
         }
 
         .remember-row {
@@ -161,14 +162,14 @@
             font-weight: 700;
             color: white;
             background: linear-gradient(135deg, var(--pink) 0%, var(--pink2) 100%);
-            box-shadow: 0 10px 28px rgba(244,63,94,.28);
+            box-shadow: 0 10px 28px rgba(244, 63, 94, .28);
             cursor: pointer;
             transition: .2s ease;
         }
 
         .login-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 16px 36px rgba(244,63,94,.36);
+            box-shadow: 0 16px 36px rgba(244, 63, 94, .36);
         }
 
         .status-box {
@@ -176,8 +177,9 @@
         }
     </style>
 </head>
+
 <body>
-<link rel="preconnect" href="https://fonts.bunny.net">
+    <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700,800" rel="stylesheet" />
 
     <div class="bg-blobs">
@@ -232,9 +234,9 @@
                     </label>
 
                     @if (Route::has('password.request'))
-                        <a href="{{ route('password.request') }}">
-                            {{ __('Esqueceu sua senha?') }}
-                        </a>
+                    <a href="{{ route('password.request') }}">
+                        {{ __('Esqueceu sua senha?') }}
+                    </a>
                     @endif
                 </div>
 
@@ -245,4 +247,5 @@
         </div>
     </div>
 </body>
+
 </html>

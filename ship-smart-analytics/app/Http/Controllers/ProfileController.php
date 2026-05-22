@@ -39,7 +39,7 @@ class ProfileController extends Controller
             'tag_4' => ['nullable', 'string', 'max:50'],
         ]);
 
-        $user->update($data);
+        
 
         return redirect()
             ->route('profile.edit')

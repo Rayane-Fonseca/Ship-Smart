@@ -2,7 +2,7 @@
     .nav-root {
         background: #fff;
         border-bottom: 1px solid #fce7f3;
-        box-shadow: 0 1px 8px rgba(244,63,94,.06);
+        box-shadow: 0 1px 8px rgba(244, 63, 94, .06);
         position: sticky;
         top: 0;
         z-index: 50;
@@ -36,7 +36,7 @@
         align-items: center;
         justify-content: center;
         font-size: 17px;
-        box-shadow: 0 4px 10px rgba(244,63,94,.22);
+        box-shadow: 0 4px 10px rgba(244, 63, 94, .22);
         flex-shrink: 0;
     }
 
@@ -160,7 +160,7 @@
         background: #fff;
         border: 1px solid #fce7f3;
         border-radius: 16px;
-        box-shadow: 0 10px 30px rgba(0,0,0,.10);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .10);
         overflow: hidden;
         z-index: 100;
     }
@@ -171,8 +171,15 @@
     }
 
     @keyframes dropIn {
-        from { opacity: 0; transform: translateY(-6px); }
-        to   { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(-6px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .nav-dropdown-header {
@@ -303,10 +310,21 @@
     }
 
     @media (max-width: 640px) {
-        .nav-links     { display: none; }
-        .nav-user-btn  { display: none; }
-        .nav-hamburger { display: flex; }
-        .nav-inner     { padding: 0 16px; }
+        .nav-links {
+            display: none;
+        }
+
+        .nav-user-btn {
+            display: none;
+        }
+
+        .nav-hamburger {
+            display: flex;
+        }
+
+        .nav-inner {
+            padding: 0 16px;
+        }
     }
 </style>
 
@@ -322,11 +340,11 @@
         {{-- Links desktop --}}
         <div class="nav-links">
             <a href="{{ route('dashboard') }}"
-               class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                 <span class="nav-link-icon">📊</span> Dashboard
             </a>
             <a href="{{ route('pacotes.index') }}"
-               class="nav-link {{ request()->routeIs('pacotes.*') ? 'active' : '' }}">
+                class="nav-link {{ request()->routeIs('pacotes.*') ? 'active' : '' }}">
                 <span class="nav-link-icon">📦</span> Pacotes
             </a>
         </div>
@@ -357,7 +375,7 @@
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="nav-dropdown-item danger"
-                                onclick="event.preventDefault(); this.closest('form').submit();">
+                            onclick="event.preventDefault(); this.closest('form').submit();">
                             🚪 Sair
                         </button>
                     </form>
@@ -368,10 +386,17 @@
             <button class="nav-hamburger" @click="open = !open">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                     <template x-if="!open">
-                        <g><line x1="2" y1="5"  x2="16" y2="5"/><line x1="2" y1="9"  x2="16" y2="9"/><line x1="2" y1="13" x2="16" y2="13"/></g>
+                        <g>
+                            <line x1="2" y1="5" x2="16" y2="5" />
+                            <line x1="2" y1="9" x2="16" y2="9" />
+                            <line x1="2" y1="13" x2="16" y2="13" />
+                        </g>
                     </template>
                     <template x-if="open">
-                        <g><line x1="3" y1="3" x2="15" y2="15"/><line x1="15" y1="3" x2="3" y2="15"/></g>
+                        <g>
+                            <line x1="3" y1="3" x2="15" y2="15" />
+                            <line x1="15" y1="3" x2="3" y2="15" />
+                        </g>
                     </template>
                 </svg>
             </button>
@@ -382,11 +407,11 @@
     {{-- Menu mobile --}}
     <div class="nav-mobile" :class="{ open: open }">
         <a href="{{ route('dashboard') }}"
-           class="nav-mobile-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+            class="nav-mobile-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
             📊 Dashboard
         </a>
         <a href="{{ route('pacotes.index') }}"
-           class="nav-mobile-link {{ request()->routeIs('pacotes.*') ? 'active' : '' }}">
+            class="nav-mobile-link {{ request()->routeIs('pacotes.*') ? 'active' : '' }}">
             📦 Pacotes
         </a>
 
@@ -399,7 +424,7 @@
             <form method="POST" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="nav-mobile-link" style="width:100%;text-align:left;border:none;background:none;cursor:pointer;"
-                        onclick="event.preventDefault(); this.closest('form').submit();">
+                    onclick="event.preventDefault(); this.closest('form').submit();">
                     🚪 Sair
                 </button>
             </form>

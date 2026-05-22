@@ -32,7 +32,7 @@
         border: 1px solid #fce7f3;
         border-radius: 20px;
         overflow: hidden;
-        box-shadow: 0 1px 3px rgba(0,0,0,.04);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .04);
     }
 
     .form-card-header {
@@ -54,7 +54,7 @@
         justify-content: center;
         font-size: 18px;
         flex-shrink: 0;
-        box-shadow: 0 4px 10px rgba(244,63,94,.20);
+        box-shadow: 0 4px 10px rgba(244, 63, 94, .20);
     }
 
     .form-card-title {
@@ -143,7 +143,7 @@
         background: #fff;
         outline: none;
         transition: border-color .18s ease, box-shadow .18s ease;
-        box-shadow: 0 1px 2px rgba(0,0,0,.03);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .03);
         -webkit-appearance: none;
         appearance: none;
     }
@@ -160,7 +160,7 @@
     .form-input:focus,
     .form-select:focus {
         border-color: #f472b6;
-        box-shadow: 0 0 0 4px rgba(244,114,182,.13);
+        box-shadow: 0 0 0 4px rgba(244, 114, 182, .13);
     }
 
     /* Select com seta customizada */
@@ -255,13 +255,21 @@
 
     .has-error {
         border-color: #fb7185 !important;
-        box-shadow: 0 0 0 4px rgba(251,113,133,.12) !important;
+        box-shadow: 0 0 0 4px rgba(251, 113, 133, .12) !important;
     }
 
     /* Status com bolinha colorida */
-    .status-option-pendente  { color: #be185d; }
-    .status-option-emrota    { color: #a21caf; }
-    .status-option-entregue  { color: #047857; }
+    .status-option-pendente {
+        color: #be185d;
+    }
+
+    .status-option-emrota {
+        color: #a21caf;
+    }
+
+    .status-option-entregue {
+        color: #047857;
+    }
 
     @media (max-width: 900px) {
         .form-grid.cols-3 {
@@ -270,6 +278,7 @@
     }
 
     @media (max-width: 640px) {
+
         .form-grid,
         .form-grid.cols-3 {
             grid-template-columns: 1fr;
@@ -284,17 +293,17 @@
 
 {{-- Erros globais --}}
 @if($errors->any())
-    <div class="form-error-box">
-        <div class="form-error-box-icon">🚫</div>
-        <div>
-            <strong>Não foi possível salvar o pacote:</strong>
-            <ul>
-                @foreach($errors->all() as $erro)
-                    <li>{{ $erro }}</li>
-                @endforeach
-            </ul>
-        </div>
+<div class="form-error-box">
+    <div class="form-error-box-icon">🚫</div>
+    <div>
+        <strong>Não foi possível salvar o pacote:</strong>
+        <ul>
+            @foreach($errors->all() as $erro)
+            <li>{{ $erro }}</li>
+            @endforeach
+        </ul>
     </div>
+</div>
 @endif
 
 <div class="form-card">
@@ -320,10 +329,9 @@
                         name="nome"
                         value="{{ old('nome', $p?->nome) }}"
                         class="form-input @error('nome') has-error @enderror"
-                        placeholder="Ex: Caixa eletrônicos"
-                    >
+                        placeholder="Ex: Caixa eletrônicos">
                     @error('nome')
-                        <div class="form-error-text">{{ $message }}</div>
+                    <div class="form-error-text">{{ $message }}</div>
                     @enderror
                 </div>
 
@@ -334,10 +342,9 @@
                         name="codigo"
                         value="{{ old('codigo', $p?->codigo) }}"
                         class="form-input form-input-mono @error('codigo') has-error @enderror"
-                        placeholder="Ex: BR123456789"
-                    >
+                        placeholder="Ex: BR123456789">
                     @error('codigo')
-                        <div class="form-error-text">{{ $message }}</div>
+                    <div class="form-error-text">{{ $message }}</div>
                     @enderror
                 </div>
 
@@ -356,10 +363,9 @@
                         name="fabricante_fornecedor"
                         value="{{ old('fabricante_fornecedor', $p?->fabricante_fornecedor) }}"
                         class="form-input @error('fabricante_fornecedor') has-error @enderror"
-                        placeholder="Ex: Mercado Livre"
-                    >
+                        placeholder="Ex: Mercado Livre">
                     @error('fabricante_fornecedor')
-                        <div class="form-error-text">{{ $message }}</div>
+                    <div class="form-error-text">{{ $message }}</div>
                     @enderror
                 </div>
 
@@ -370,10 +376,9 @@
                         name="destinatario"
                         value="{{ old('destinatario', $p?->destinatario) }}"
                         class="form-input @error('destinatario') has-error @enderror"
-                        placeholder="Ex: João Silva"
-                    >
+                        placeholder="Ex: João Silva">
                     @error('destinatario')
-                        <div class="form-error-text">{{ $message }}</div>
+                    <div class="form-error-text">{{ $message }}</div>
                     @enderror
                 </div>
 
@@ -396,11 +401,10 @@
                             step="0.01"
                             min="0"
                             class="form-input @error('preco') has-error @enderror"
-                            placeholder="0,00"
-                        >
+                            placeholder="0,00">
                     </div>
                     @error('preco')
-                        <div class="form-error-text">{{ $message }}</div>
+                    <div class="form-error-text">{{ $message }}</div>
                     @enderror
                 </div>
 
@@ -414,13 +418,12 @@
                             step="0.001"
                             min="0.01"
                             class="form-input @error('peso') has-error @enderror"
-                            placeholder="0,010"
-                        >
+                            placeholder="0,010">
                         <span class="form-input-suffix">kg</span>
                     </div>
                     <div class="form-help">Mínimo: 0,010 kg</div>
                     @error('peso')
-                        <div class="form-error-text">{{ $message }}</div>
+                    <div class="form-error-text">{{ $message }}</div>
                     @enderror
                 </div>
 
@@ -431,10 +434,9 @@
                         name="quantidade"
                         value="{{ old('quantidade', $p?->quantidade ?? 1) }}"
                         min="1"
-                        class="form-input @error('quantidade') has-error @enderror"
-                    >
+                        class="form-input @error('quantidade') has-error @enderror">
                     @error('quantidade')
-                        <div class="form-error-text">{{ $message }}</div>
+                    <div class="form-error-text">{{ $message }}</div>
                     @enderror
                 </div>
 
@@ -451,17 +453,16 @@
                     <div class="form-select-wrap">
                         <select
                             name="status"
-                            class="form-select @error('status') has-error @enderror"
-                        >
+                            class="form-select @error('status') has-error @enderror">
                             @foreach(['Pendente', 'Em Rota', 'Entregue'] as $s)
-                                <option value="{{ $s }}" {{ old('status', $p?->status ?? 'Pendente') == $s ? 'selected' : '' }}>
-                                    {{ $s }}
-                                </option>
+                            <option value="{{ $s }}" {{ old('status', $p?->status ?? 'Pendente') == $s ? 'selected' : '' }}>
+                                {{ $s }}
+                            </option>
                             @endforeach
                         </select>
                     </div>
                     @error('status')
-                        <div class="form-error-text">{{ $message }}</div>
+                    <div class="form-error-text">{{ $message }}</div>
                     @enderror
                 </div>
 
